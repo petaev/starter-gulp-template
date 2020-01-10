@@ -1,0 +1,30 @@
+block variables
+
+doctype html
+html(lang="ru-RU")
+    head
+        meta(charset="utf-8")
+        title #{title}
+        <!--[if IE]>
+        meta(http-equiv='X-UA-Compatible', content="IE = edge")
+        <![endif]-->
+        meta(name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1")
+        
+        link(rel="stylesheet" href="css/vendor.min.css")
+        link(rel="stylesheet" href="css/main.min.css")
+
+        <!--[if lt IE 9]>
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
+        <![endif]-->
+
+    body(class=pageClass)
+
+        .wrapper
+
+            block content
+
+        
+
+        // SCRIPTS
+        script(src="js/vendor.js")
+        script(src="js/common.js")

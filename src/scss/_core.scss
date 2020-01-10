@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    &:after,
+    &:before {
+        box-sizing: border-box;
+    }
+}
+
+
+::placeholder {
+	color: #666666;
+    opacity: 1;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-size: 16px;
+	min-width: 320px;
+	line-height: 1.25;
+	font-family: $default-font, sans-serif;
+	overflow-x: hidden;
+    margin: 0;
+	position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+input, textarea, select {
+	border: 1px solid #666;
+	background-color: $white;
+	outline: none;
+}
+
+textarea {
+	resize: none;
+}
+
+button {
+	border: 1px solid $accent;
+	background-color: transparent;
+	outline: none;
+}
+
+::selection {
+	background-color: $accent;
+	color: #fff;
+}
