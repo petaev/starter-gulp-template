@@ -1,4 +1,18 @@
 
-@import 'vars';
-@import 'fonts';
+// Base
+@import 'core/variables';
+@import 'core/fonts';
+
+// Tools
+@import 'tools/mixin';
+@import 'tools/helpers';
+
+// Components
+@import 'components/index';
+
+// Modules
+@import 'modules/index';
+
+// Theme Styles
 @import 'core';
+@import 'theme';

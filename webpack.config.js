@@ -12,14 +12,8 @@ module.exports = {
         })
     ],
 
-    // entry: {
-    //     vendors: "./js/dev/libs.js",
-    // },
-
     output: {
         filename: "vendor.js",
-        // chunkFilename: "vendor.js",
-        // publicPath: "/js"
     },
 
     module: {
@@ -44,17 +38,4 @@ module.exports = {
             }
         ]
     }
-
-    // optimization: {
-    //     splitChunks: {
-    //         cacheGroups: {
-    //             vendor: {
-    //                 test: /node_modules/,
-    //                 chunks: "initial",
-    //                 name: "vendor",
-    //                 enforce: true
-    //             }
-    //         }
-    //     }
-    // }
 };

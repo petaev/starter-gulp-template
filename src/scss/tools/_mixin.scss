@@ -1,0 +1,73 @@
+@mixin max-screen($size) {
+    @media screen and (max-width : $size) {
+        @content;
+    }
+};
+
+
+@mixin min-screen($size) {
+    @media screen and (min-width : $size) {
+        @content;
+    }
+};
+
+
+@mixin text-overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+
+@mixin hide-scrollbar {
+    -ms-overflow-style: none;  // Internet Explorer 10+
+    scrollbar-width: none;  // Firefox
+
+    &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}
+
+@mixin reset-last-mb {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin reset-last-mr {
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+@mixin flex($display: flex, $vertical: center, $horizontal: flex-start) {
+
+    display: $display;
+    align-items: $vertical;
+
+    @if ($horizontal != flex-start) {
+        justify-content: $horizontal;
+    }
+}
+
+
+@mixin z($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+// Client Agent
+@mixin is-mac() {
+    .is-mac & {
+        @content;
+    }
+}
+
+@mixin is-ios() {
+    .is-ios & {
+        @content;
+    }
+}

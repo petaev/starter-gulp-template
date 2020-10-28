@@ -1,0 +1,21 @@
+// Colors
+$accent: orange;
+$text: #333333;
+$white: #ffffff;
+$black: #000000;
+
+// Fonts
+$font-default: 'Roboto';
+$font-fallback: Helvetica, sans-serif;
+$font: $font-default, $font-fallback;
+
+// Transition
+$trs: 0.2s ease-in-out;
+
+// Breakpoints
+$xl: 1199px;
+$lg: 991px;
+$md: 767px;
+$sm: 575px;
+$smx: 413px;
+$xs: 374px;

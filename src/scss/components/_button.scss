@@ -1,0 +1,13 @@
+$bt: '.btn';
+
+#{$bt} {
+    display: inline-block;
+    text-align: center;
+    font-family: $font;
+    padding: 0.75rem 2rem;
+    
+    &:focus, &:active {
+        outline: none;
+        box-shadow: none;
+    }
+}
