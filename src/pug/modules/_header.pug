@@ -1,2 +1,24 @@
+-
+    var menuItems = [
+        'Home',
+        'Contacts'
+    ]
+
 mixin header()
     header.header
+        .container-xl
+            .row.align-items-center.flex-nowrap.justify-content-between
+                .col-auto
+                    a.header__logo(href="")
+                        |Logo
+
+                .col-auto.d-none.d-lg-block
+                    nav.header__menu
+                        ul.h-menu
+                            each item in menuItems
+                                li.h-menu__item
+                                    a(href="#").h-menu__link!= item
+
+                .col-auto.d-flex.d-lg-none.ml-auto
+                    button(type="button").bt-burger.header__menu-toggle
+                        span.bt-burger__in

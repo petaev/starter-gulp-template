@@ -54,9 +54,9 @@
 }
 
 
-@mixin z($width, $height) {
-    width: $width;
-    height: $height;
+@mixin z($size) {
+    width: $size;
+    height: $size;
 }
 
 // Client Agent

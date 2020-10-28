@@ -1,0 +1,57 @@
+/* Hamburger */
+$bt-burger-child-height: 3px;
+$bt-burger-bg-color: $black;
+$bt-burger-width: 34px;
+
+.bt-burger {
+
+    height: $bt-burger-width;
+    border: none;
+
+    &__in {
+        position: relative;
+        height: $bt-burger-child-height;
+        width: $bt-burger-width;
+        background-color: $bt-burger-bg-color;
+        display: block;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: $bt-burger-child-height;
+            background-color: $bt-burger-bg-color;
+            display: block;
+            transition: transform $trs;
+        }
+
+        &:before {
+            top: -11px;
+        }
+
+        &:after {
+            top: 11px;
+        }
+    }
+
+
+    &.is-active {
+        .bt-burger__in {
+            background-color: transparent;
+
+            &:before, &:after {
+                width: 100%;
+                top: 0;
+            }
+
+            &:before {
+                transform: rotate(-45deg);
+            }
+
+            &:after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}

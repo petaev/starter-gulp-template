@@ -1,0 +1,47 @@
+mixin checkbox(text, cls)
+    label.t-checkbox(class!= (cls ? cls : undefined))
+        input.t-checkbox__input(type="checkbox")&attributes(attributes)
+        span.t-checkbox__mark
+        if (text)
+            .t-checkbox__text!= text
+
+
+mixin file-upload()
+    .file-upload-block&attributes(attributes)
+        a(href="#").f-upload-toggle.icon-hover-accent
+            span.f-upload-toggle__icon
+                img(src="img/icons/attachment.svg", alt="Приложить файл").svg
+            span.f-upload-toggle__text Приложить файл
+        // Dropzone
+        .f-dropzone(style="display: none")
+
+            .f-dropzone__placeholder
+                .f-dropzone__text Перенесите файл или <span class="f-dropzone__action">выберите</span>
+            
+            .f-dropzone__files
+
+            .f-dropzone__template(style="display: none")
+                .f-upload
+                    .f-upload__main
+                        span.f-upload__text(data-dz-name="")
+                    span.f-upload__progress 0%
+                    button.f-upload__action(data-dz-remove="")
+                        img(src="img/icons/close.svg", alt="")
+
+
+mixin pagination()
+    ul.pagination&attributes(attributes)
+        li
+            a(href="#").is-disabled Назад
+        li
+            a(href="#").is-active 1
+        li
+            a(href="#") 2
+        li
+            a(href="#") 3
+        li
+            a(href="#" style="pointer-events: none") ...
+        li
+            a(href="#") 10
+        li
+            a(href="#") Вперед

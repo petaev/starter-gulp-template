@@ -69,16 +69,44 @@ textarea {
 }
 
 button {
-	border: 1px solid $accent;
+	border: 1px solid transparent;
 	background-color: transparent;
     outline: none;
     padding: 0;
     border-radius: 0;
     appearance: none;
     transition: all $trs;
+
+    &:focus, &:active {
+        outline: none;
+        box-shadow: none;
+    }
 }
 
 ::selection {
 	background-color: $accent;
 	color: #fff;
+}
+
+label {
+    margin: 0;
+    display: block;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+// Contacts
+a[href^="tel"],
+a[href^="mailto"] {
+	white-space: nowrap;
+}
+
+a[href^="tel"] {
+	pointer-events: none;
+
+	@include max-screen($lg) {
+		pointer-events: all;
+	}
 }

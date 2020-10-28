@@ -1,0 +1,18 @@
+.header {
+    
+}
+
+
+.h-menu {
+    @include flex();
+
+    &__item {
+        margin-right: 1.5rem;
+        @include reset-last-mr;
+    }
+}
+
+
+.logo {
+    display: block;
+}
