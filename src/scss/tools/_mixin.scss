@@ -71,3 +71,29 @@
         @content;
     }
 }
+
+// Styles
+@mixin abs-full() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin bg-default() {
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+
+@mixin vh-100() {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+@mixin img-cover() {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
