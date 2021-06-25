@@ -9,6 +9,9 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/stream": "^2.0.0",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.6",
@@ -25,6 +28,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.5",
+    "rollup": "^2.52.2",
+    "vinyl-source-stream": "^2.0.0",
     "webpack": "^4.41.5",
     "webpack-stream": "^5.2.1"
   },

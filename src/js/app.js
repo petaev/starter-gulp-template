@@ -35,6 +35,7 @@ if (isIos) {
 // Custom
 $(document).ready(function () {
 
+    console.log('b')
     /**
      * Scroll To Slug 
      * [data-scroll="#id"]

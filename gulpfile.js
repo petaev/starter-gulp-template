@@ -14,8 +14,12 @@ const
 	cleancss = require('gulp-clean-css'),
 	babel = require('gulp-babel'),
 	del = require('del'),
-	webpack = require('webpack'),
-	webpackStream = require('webpack-stream');
+
+	{ rollup } = require('rollup'),
+	rollupResolve = require('@rollup/plugin-node-resolve').nodeResolve,
+	rollupBabel = require('@rollup/plugin-babel').babel;
+	// webpack = require('webpack'),
+	// webpackStream = require('webpack-stream');
 
 
 /* Config */
@@ -31,14 +35,9 @@ const config = {
 		watch: `${coreDir.src}/scss/**/*.scss`
 	},
 	scripts: {
-		src: [`${coreDir.src}/js/*.js`, `!${coreDir.src}/js/vendor.js`],
+		src: [`${coreDir.src}/js/*.js`],
 		dist: `${coreDir.dist}/js`,
-		watch: [`${coreDir.src}/js/**/*.js`, `!${coreDir.src}/js/vendor.js`]
-	},
-	scriptLibs: {
-		src: `${coreDir.src}/js/vendor.js`,
-		dist: `${coreDir.dist}/js`,
-		watch: `${coreDir.src}/js/vendor.js`
+		watch: [`${coreDir.src}/js/**/*.js`]
 	},
 	pug: {
 		src: `${coreDir.src}/pug/*.pug`,
@@ -76,28 +75,47 @@ gulp.task('styles:build', () => {
 
 
 /* Scripts */
-const webpackConfig = require('./webpack.config.js');
 
-gulp.task('scripts:dev', () => {
-	return gulp.src(config.scripts.src)
-			.pipe(babel())
-			.pipe(gulp.dest(config.scripts.dist))
-			.pipe(browserSync.reload( { stream: true }))
+const rollupOptions = {
+	input: [
+		coreDir.src + '/js/vendor.js', 
+		coreDir.src + '/js/app.js'
+	],
+	plugins: [
+		rollupResolve(),
+		rollupBabel()
+	],
+	treeshake: false
+}
+
+gulp.task('scripts:dev', async function() {
+	const bundle = await rollup(rollupOptions);
+
+	await bundle.write({
+		dir: config.scripts.dist,
+		format: 'es',
+		sourcemap: false
+	})
 });
 
 gulp.task('scripts:build', () => {
-	return gulp.src(config.scripts.src)
-			.pipe(babel())
-			.pipe(gulp.dest(config.scripts.dist))
+	return rollup.rollup({
+		input: [
+			coreDir.src + '/js/vendor.js', 
+			coreDir.src + '/js/app.js'
+		],
+		plugins: [
+			rollupResolve(),
+			rollupBabel()
+		],
+		treeshake: false
+	  }).then(bundle => {
+		return bundle.write({
+			dir: config.scripts.dist,
+			sourcemap: false
+		})
+	})
 });
-
-gulp.task('script-libs', () => {
-	return gulp.src(config.scriptLibs.src)
-		.pipe(webpackStream(webpackConfig), webpack)
-		.pipe(gulp.dest(config.scriptLibs.dist));
-});
-
-
 
 /* PUG */
 gulp.task('pug:dev', function() {
@@ -155,16 +173,16 @@ gulp.task('browser-sync', () => {
 
 
 /* Dev */
-gulp.task('watch', ['browser-sync', 'styles:dev', 'pug:dev', 'scripts:dev', 'script-libs'], function() {
+gulp.task('watch', ['browser-sync', 'styles:dev', 'pug:dev', 'scripts:dev'], function() {
 	gulp.watch(config.styles.watch, ['styles:dev']);
 	gulp.watch(config.pug.watch, ['pug:dev']);
 	gulp.watch(config.scripts.watch, ['scripts:dev']);
-	gulp.watch(config.scriptLibs.watch, ['script-libs']);
+	// gulp.watch(config.scriptLibs.watch, ['script-libs']);
 	gulp.watch(config.html.src, browserSync.reload);
 });
 
 /* Build */
-gulp.task('build', ['styles:build', 'pug:build', 'scripts:build', 'script-libs'], () => {
+gulp.task('build', ['styles:build', 'pug:build', 'scripts:build'], () => {
 	gulp.start('html-beauty')
 });
 
