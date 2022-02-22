@@ -3,3 +3,6 @@
 /**/package-lock.json
 /**/Thumbs.db
 /**/*.DS_Store
+/public/*.html
+/public/css/
+/public/js/
