@@ -6,9 +6,9 @@ const BASE_DIR = {
 // Files
 const FILES_PATH = {
 	styles: {
-		src: `${BASE_DIR.src}/scss/*.scss`,
+		src: `${BASE_DIR.src}/scss/*.{scss,sass}`,
 		dist: `${BASE_DIR.dist}/css`,
-		watch: `${BASE_DIR.src}/scss/**/*.scss`
+		watch: `${BASE_DIR.src}/scss/**/*.{scss,sass}`
 	},
 
 	scripts: {

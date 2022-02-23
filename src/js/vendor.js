@@ -1,5 +1,8 @@
 import $ from 'jquery';
-import 'bootstrap';
+
+// Bootstrap modules
+import 'bootstrap/js/src/dropdown';
+import 'bootstrap/js/src/modal';
 
 window.$ = $;
 window.jQuery = $;
