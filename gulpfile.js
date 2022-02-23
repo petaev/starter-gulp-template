@@ -6,7 +6,7 @@ const
 	serve = require('./gulp/tasks/serve'),
 	styles = require('./gulp/tasks/styles'),
 	pug = require('./gulp/tasks/pug'),
-	{ scripts, scriptsLibs } = require('./gulp/tasks/scripts'),
+	scripts = require('./gulp/tasks/scripts'),
 	clean = require('./gulp/tasks/clean'),
 	htmlFormat = require('./gulp/tasks/html-format');
 
@@ -27,21 +27,22 @@ task(setDevMode);
 // Dev mode
 const dev = series(
 	setDevMode, 
-	parallel(styles, pug, scripts, scriptsLibs),
+	parallel(styles, pug, scripts),
 	serve
 );
 
 // Build
 const build = series(
 	clean,
-	parallel(styles, pug, scripts, scriptsLibs),
+	parallel(styles, pug, scripts),
 	htmlFormat
 );
 
 
 module.exports = {
 	dev,
-	build
+	build,
+	scripts,
 }
 
 module.exports.default = dev

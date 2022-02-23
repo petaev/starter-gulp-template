@@ -27,8 +27,9 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.5",
-    "webpack": "^4.41.5",
-    "webpack-stream": "^5.2.1"
+    "vinyl-named": "^1.1.0",
+    "webpack": "^5.69.1",
+    "webpack-stream": "^7.0.0"
   },
   "author": "petaev",
   "license": "ISC",

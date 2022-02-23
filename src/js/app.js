@@ -41,7 +41,7 @@ $(document).ready(function () {
      */
     (function() {
         $(document).on('click', '[data-scroll]', function(e) {
-            scrollToSlug($(this).data('scroll'));
+            scrollToSlug($(this).data('scroll') || $(this).attr('href'));
         });
     })();
   

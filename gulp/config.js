@@ -12,15 +12,9 @@ const FILES_PATH = {
 	},
 
 	scripts: {
-		src: [`${BASE_DIR.src}/js/*.js`, `!${BASE_DIR.src}/js/vendor.js`],
+		src: `${BASE_DIR.src}/js/*.js`,
 		dist: `${BASE_DIR.dist}/js`,
-		watch: [`${BASE_DIR.src}/js/**/*.js`, `!${BASE_DIR.src}/js/vendor.js`]
-	},
-
-	scriptLibs: {
-		src: `${BASE_DIR.src}/js/vendor.js`,
-		dist: `${BASE_DIR.dist}/js`,
-		watch: `${BASE_DIR.src}/js/vendor.js`
+		watch: `${BASE_DIR.src}/js/**/*.js`
 	},
 
 	pug: {
