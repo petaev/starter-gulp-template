@@ -8,6 +8,8 @@ Gulp starter template for static sites
 
 ``` rm -rf .git public/fonts/.gitignore public/img/.gitignore ```
 
+``` npm install ```
+
 ## Usage
 
 ### Development
