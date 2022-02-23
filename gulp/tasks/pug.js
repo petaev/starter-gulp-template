@@ -8,11 +8,11 @@ const { FILES_PATH, BASE_DIR } = require('../config')
 
 module.exports = function pug() {
 
-    const sourcePaths = [FILES_PATH.pug.src];
+    let sourcePaths = [FILES_PATH.pug.src];
 
-    // Prod
+    // Add watch ignored files to build
     if (!isDev) {
-        sourcePaths.push(FILES_PATH.pug.ignoreWatch)
+        sourcePaths = [...sourcePaths, FILES_PATH.pug.ignoreWatch]
     }
 
     return src(sourcePaths)

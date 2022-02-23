@@ -39,7 +39,9 @@ const build = series(
 );
 
 
-module.exports.dev = dev
-module.exports.build = build
+module.exports = {
+	dev,
+	build
+}
 
 module.exports.default = dev
